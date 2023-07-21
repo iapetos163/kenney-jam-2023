@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwcwkqy0bleq"]
+
+[ext_resource type="Texture2D" uid="uid://ceqmhd6uh5xnq" path="res://asset/ui/green_button00.png" id="1_b0rv7"]
+
+[node name="green_button" type="NinePatchRect"]
+offset_right = 190.0
+offset_bottom = 49.0
+texture = ExtResource("1_b0rv7")
+region_rect = Rect2(0, 0, 190, 49)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 10

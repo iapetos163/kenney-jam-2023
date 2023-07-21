@@ -50,10 +50,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = 7.0
-offset_right = -19.5625
-offset_bottom = -7.0
+offset_left = -10.1875
+offset_top = 4.5
+offset_right = -16.375
+offset_bottom = -4.5
 grow_horizontal = 2
 grow_vertical = 2
 placeholder_text = "0"
@@ -171,7 +171,7 @@ vertical_alignment = 1
 script = ExtResource("9_sfv4o")
 
 [node name="total_amount_coin" type="Sprite2D" parent="total_amount_container"]
-position = Vector2(27, 4)
+position = Vector2(10, 4)
 scale = Vector2(0.179687, 0.179687)
 texture = ExtResource("5_vl5v3")
 centered = false
@@ -181,8 +181,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 45.0
-offset_right = 1.0
+offset_left = 28.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -191,8 +190,8 @@ vertical_alignment = 1
 script = ExtResource("12_f82mv")
 
 [connection signal="num_units_updated" from="." to="amount_control/num_units" method="_on_entry_num_units_updated"]
-[connection signal="total_amount_updated" from="." to="total_amount_container/total_amount" method="_on_entry_total_amount_updated"]
 [connection signal="total_amount_updated" from="." to="total_amount_container" method="_on_entry_total_amount_updated"]
+[connection signal="total_amount_updated" from="." to="total_amount_container/total_amount" method="_on_entry_total_amount_updated"]
 [connection signal="unit_amount_set" from="." to="unit_amount" method="_on_entry_unit_amount_set"]
 [connection signal="text_changed" from="amount_control/num_units" to="." method="_on_num_units_text_changed"]
 [connection signal="pressed" from="amount_control/dec_button" to="." method="_on_dec_button_pressed"]

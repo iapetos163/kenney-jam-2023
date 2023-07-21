@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cwgs1eoegd0d"]
+[gd_scene load_steps=15 format=3 uid="uid://cwgs1eoegd0d"]
 
 [ext_resource type="TileSet" uid="uid://bs3tej65i3x01" path="res://tilemap/planetv1.tres" id="1_4bxrw"]
 [ext_resource type="Texture2D" uid="uid://bftpc3uosdva" path="res://asset/ui/blue_button01.png" id="2_u7c2o"]
@@ -7,8 +7,11 @@
 [ext_resource type="FontFile" uid="uid://bo5nhlmmcngkt" path="res://asset/ui/Kenney Future.ttf" id="5_yfxqn"]
 [ext_resource type="PackedScene" uid="uid://tgjccevfleic" path="res://ui/blue_panel.tscn" id="6_vtg26"]
 [ext_resource type="LabelSettings" uid="uid://c7ibfkcae4uw2" path="res://ui/ui_subtitle_settings.tres" id="7_tsxho"]
+[ext_resource type="Texture2D" uid="uid://brv4xuarjigxr" path="res://asset/ui/blue_sliderRight.png" id="8_36pox"]
 [ext_resource type="PackedScene" uid="uid://boitdlwx2d4vh" path="res://ui/transaction_entry/transaction_entry.tscn" id="8_nsi8l"]
 [ext_resource type="Script" path="res://ui/buy_panel_contents.gd" id="8_u0pxh"]
+[ext_resource type="Theme" uid="uid://cb2s56xtatj3o" path="res://ui/base_theme.tres" id="9_taqc5"]
+[ext_resource type="PackedScene" uid="uid://dwcwkqy0bleq" path="res://ui/green_button.tscn" id="12_p0rwm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_186vl"]
 font = ExtResource("5_yfxqn")
@@ -156,12 +159,71 @@ offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="coin2" type="Sprite2D" parent="trade_ui/body_container"]
+position = Vector2(254, 330)
+scale = Vector2(0.335938, 0.335938)
+texture = ExtResource("3_vod5y")
+
+[node name="money_amount_change_container" type="Control" parent="trade_ui/body_container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 216.0
+offset_top = 297.0
+offset_right = -232.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_taqc5")
+
+[node name="money_amount_bg" parent="trade_ui/body_container/money_amount_change_container" instance=ExtResource("4_dbp6n")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="current_money_amount" type="Label" parent="trade_ui/body_container/money_amount_change_container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -124.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "2222222222"
+vertical_alignment = 1
+
+[node name="new_money_amount" type="Label" parent="trade_ui/body_container/money_amount_change_container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 122.0
+offset_right = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "2222222222"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="BlueSliderRight" type="Sprite2D" parent="trade_ui/body_container/money_amount_change_container"]
+position = Vector2(148, 14)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_36pox")
+
 [node name="buy_container" type="Control" parent="trade_ui/body_container"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -380.0
+offset_bottom = -57.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -170,7 +232,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -316.0
+offset_top = -7.0
+offset_bottom = -280.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "BUY"
@@ -207,7 +270,7 @@ layout_mode = 1
 anchor_right = 1.0
 anchor_bottom = 0.107
 offset_right = 0.0
-offset_bottom = -0.100002
+offset_bottom = 5.999
 grow_horizontal = 2
 
 [node name="sell_container" type="Control" parent="trade_ui/body_container"]
@@ -218,3 +281,38 @@ anchor_bottom = 1.0
 offset_left = 380.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ok_button" type="Control" parent="trade_ui/body_container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 321.0
+offset_top = 329.0
+offset_right = -343.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="green_button" parent="trade_ui/body_container/ok_button" instance=ExtResource("12_p0rwm")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="trade_ui/body_container/ok_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "OK"
+label_settings = ExtResource("7_tsxho")
+horizontal_alignment = 1
+vertical_alignment = 1
