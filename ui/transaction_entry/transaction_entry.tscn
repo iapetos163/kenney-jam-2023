@@ -1,0 +1,199 @@
+[gd_scene load_steps=13 format=3 uid="uid://boitdlwx2d4vh"]
+
+[ext_resource type="PackedScene" uid="uid://ck7ajarbrkyfy" path="res://item/iron_ore.tscn" id="1_fraje"]
+[ext_resource type="Theme" uid="uid://cb2s56xtatj3o" path="res://ui/base_theme.tres" id="1_xwx66"]
+[ext_resource type="PackedScene" uid="uid://crw1u2d46c1b" path="res://ui/gray_panel.tscn" id="2_wecv0"]
+[ext_resource type="Script" path="res://ui/transaction_entry/entry.gd" id="2_xnn42"]
+[ext_resource type="Texture2D" uid="uid://dsry7o1b6iqd0" path="res://asset/icon/minus.png" id="3_0xt2v"]
+[ext_resource type="Texture2D" uid="uid://b7y11eq8pwub1" path="res://asset/icon/plus.png" id="4_y00ui"]
+[ext_resource type="Script" path="res://ui/transaction_entry/num_units.gd" id="5_lkrn2"]
+[ext_resource type="Texture2D" uid="uid://b126wm3pj77cw" path="res://asset/coinGold.png" id="5_vl5v3"]
+[ext_resource type="Script" path="res://ui/transaction_entry/total_amount_container.gd" id="9_i1cey"]
+[ext_resource type="Script" path="res://ui/transaction_entry/unit_amount.gd" id="9_mfjyc"]
+[ext_resource type="Script" path="res://ui/transaction_entry/entry_sign.gd" id="9_sfv4o"]
+[ext_resource type="Script" path="res://ui/transaction_entry/total_amount.gd" id="12_f82mv"]
+
+[node name="entry" type="Control"]
+layout_mode = 3
+anchor_right = 0.259
+anchor_bottom = 0.05
+offset_right = -0.52002
+theme = ExtResource("1_xwx66")
+script = ExtResource("2_xnn42")
+
+[node name="iron_ore" parent="." instance=ExtResource("1_fraje")]
+position = Vector2(1, 0)
+scale = Vector2(0.5, 0.5)
+
+[node name="amount_control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_right = 103.0
+grow_vertical = 2
+
+[node name="gray_panel" parent="amount_control" instance=ExtResource("2_wecv0")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 5.0
+offset_right = -15.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="num_units" type="LineEdit" parent="amount_control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 7.0
+offset_right = -19.5625
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "0"
+alignment = 2
+max_length = 3
+virtual_keyboard_type = 2
+script = ExtResource("5_lkrn2")
+
+[node name="dec_button" type="TextureButton" parent="amount_control"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 9.0
+offset_right = 99.0
+offset_bottom = 77.0
+grow_vertical = 2
+scale = Vector2(0.125, 0.125)
+texture_normal = ExtResource("3_0xt2v")
+
+[node name="inc_button" type="TextureButton" parent="amount_control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 53.0
+offset_top = 9.0
+offset_right = 85.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.125, 0.125)
+texture_normal = ExtResource("4_y00ui")
+
+[node name="for" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 106.0
+offset_right = -194.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "for"
+vertical_alignment = 1
+
+[node name="unit_amount_coin" type="Sprite2D" parent="."]
+position = Vector2(130, 4)
+scale = Vector2(0.179687, 0.179687)
+texture = ExtResource("5_vl5v3")
+centered = false
+
+[node name="unit_amount" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 148.0
+offset_right = -147.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+vertical_alignment = 1
+script = ExtResource("9_mfjyc")
+
+[node name="each" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 184.5
+offset_right = -104.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "each"
+vertical_alignment = 1
+
+[node name="total_amount_container" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_i1cey")
+
+[node name="equals" type="Label" parent="total_amount_container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -87.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "="
+vertical_alignment = 1
+
+[node name="sign" type="Label" parent="total_amount_container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_right = -63.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "+"
+vertical_alignment = 1
+script = ExtResource("9_sfv4o")
+
+[node name="total_amount_coin" type="Sprite2D" parent="total_amount_container"]
+position = Vector2(27, 4)
+scale = Vector2(0.179687, 0.179687)
+texture = ExtResource("5_vl5v3")
+centered = false
+
+[node name="total_amount" type="Label" parent="total_amount_container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "999999"
+vertical_alignment = 1
+script = ExtResource("12_f82mv")
+
+[connection signal="num_units_updated" from="." to="amount_control/num_units" method="_on_entry_num_units_updated"]
+[connection signal="total_amount_updated" from="." to="total_amount_container/total_amount" method="_on_entry_total_amount_updated"]
+[connection signal="total_amount_updated" from="." to="total_amount_container" method="_on_entry_total_amount_updated"]
+[connection signal="unit_amount_set" from="." to="unit_amount" method="_on_entry_unit_amount_set"]
+[connection signal="text_changed" from="amount_control/num_units" to="." method="_on_num_units_text_changed"]
+[connection signal="pressed" from="amount_control/dec_button" to="." method="_on_dec_button_pressed"]
+[connection signal="pressed" from="amount_control/inc_button" to="." method="_on_inc_button_pressed"]

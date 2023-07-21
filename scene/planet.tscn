@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cwgs1eoegd0d"]
+[gd_scene load_steps=12 format=3 uid="uid://cwgs1eoegd0d"]
 
 [ext_resource type="TileSet" uid="uid://bs3tej65i3x01" path="res://tilemap/planetv1.tres" id="1_4bxrw"]
 [ext_resource type="Texture2D" uid="uid://bftpc3uosdva" path="res://asset/ui/blue_button01.png" id="2_u7c2o"]
@@ -7,10 +7,8 @@
 [ext_resource type="FontFile" uid="uid://bo5nhlmmcngkt" path="res://asset/ui/Kenney Future.ttf" id="5_yfxqn"]
 [ext_resource type="PackedScene" uid="uid://tgjccevfleic" path="res://ui/blue_panel.tscn" id="6_vtg26"]
 [ext_resource type="LabelSettings" uid="uid://c7ibfkcae4uw2" path="res://ui/ui_subtitle_settings.tres" id="7_tsxho"]
-[ext_resource type="PackedScene" uid="uid://ck7ajarbrkyfy" path="res://item/iron_ore.tscn" id="8_k6cj0"]
-[ext_resource type="Theme" uid="uid://cb2s56xtatj3o" path="res://ui/base_theme.tres" id="9_taqc5"]
-[ext_resource type="Texture2D" uid="uid://dsry7o1b6iqd0" path="res://asset/icon/minus.png" id="10_05dm0"]
-[ext_resource type="Texture2D" uid="uid://b7y11eq8pwub1" path="res://asset/icon/plus.png" id="11_2fg8i"]
+[ext_resource type="PackedScene" uid="uid://boitdlwx2d4vh" path="res://ui/transaction_entry/transaction_entry.tscn" id="8_nsi8l"]
+[ext_resource type="Script" path="res://ui/buy_panel_contents.gd" id="8_u0pxh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_186vl"]
 font = ExtResource("5_yfxqn")
@@ -166,7 +164,6 @@ anchor_bottom = 1.0
 offset_right = -380.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("9_taqc5")
 
 [node name="buy_title" type="Label" parent="trade_ui/body_container/buy_container"]
 layout_mode = 1
@@ -203,168 +200,15 @@ offset_right = -17.0
 offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("8_u0pxh")
 
-[node name="buy_entry" type="Control" parent="trade_ui/body_container/buy_container/buy_panel_contents"]
+[node name="buy_entry" parent="trade_ui/body_container/buy_container/buy_panel_contents" instance=ExtResource("8_nsi8l")]
 layout_mode = 1
-anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 32.0
+anchor_bottom = 0.107
+offset_right = 0.0
+offset_bottom = -0.100002
 grow_horizontal = 2
-
-[node name="iron_ore" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry" instance=ExtResource("8_k6cj0")]
-position = Vector2(1, 0)
-scale = Vector2(0.5, 0.5)
-
-[node name="amount_control" type="Control" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry"]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = 35.0
-offset_right = 103.0
-grow_vertical = 2
-
-[node name="gray_panel" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry/amount_control" instance=ExtResource("4_dbp6n")]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 11.0
-offset_top = 5.0
-offset_right = -15.0
-offset_bottom = -5.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="amount" type="LineEdit" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry/amount_control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = 7.0
-offset_right = -19.5625
-offset_bottom = -7.0
-grow_horizontal = 2
-grow_vertical = 2
-placeholder_text = "999"
-alignment = 2
-max_length = 3
-virtual_keyboard_type = 2
-
-[node name="dec_button" type="TextureButton" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry/amount_control"]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = 9.0
-offset_right = 99.0
-offset_bottom = 77.0
-grow_vertical = 2
-scale = Vector2(0.125, 0.125)
-texture_normal = ExtResource("10_05dm0")
-
-[node name="inc_button" type="TextureButton" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry/amount_control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 53.0
-offset_top = 9.0
-offset_right = 85.0
-offset_bottom = 77.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.125, 0.125)
-texture_normal = ExtResource("11_2fg8i")
-
-[node name="for" type="Label" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 106.0
-offset_right = -194.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 12
-text = "for"
-vertical_alignment = 1
-
-[node name="unit_amount_coin" type="Sprite2D" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry"]
-position = Vector2(130, 4)
-scale = Vector2(0.179687, 0.179687)
-texture = ExtResource("3_vod5y")
-centered = false
-
-[node name="unit_amount" type="Label" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 148.0
-offset_right = -147.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "999"
-vertical_alignment = 1
-
-[node name="each" type="Label" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 184.5
-offset_right = -104.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 12
-text = "each"
-vertical_alignment = 1
-
-[node name="equals" type="Label" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 226.0
-offset_right = -90.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 12
-text = "="
-vertical_alignment = 1
-
-[node name="sign" type="Label" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 243.0
-offset_right = -26.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "+"
-vertical_alignment = 1
-
-[node name="total_amount_count" type="Sprite2D" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry"]
-position = Vector2(251, 4)
-scale = Vector2(0.179687, 0.179687)
-texture = ExtResource("3_vod5y")
-centered = false
-
-[node name="total_amount" type="Label" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 269.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "999999"
-vertical_alignment = 1
 
 [node name="sell_container" type="Control" parent="trade_ui/body_container"]
 layout_mode = 1
