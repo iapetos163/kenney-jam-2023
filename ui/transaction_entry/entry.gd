@@ -34,10 +34,10 @@ func set_unit_amount(amount: int):
 
 func _on_num_units_text_changed(new_text: String):
 	var new_value = int(new_text)
-	if new_value > 999 or new_value < 0:
+	if new_value == null or new_value > 999 or new_value < 0:
 		return
 	num_units = new_value
-	recalc_total().emit()
+	recalc_total()
 
 func _on_dec_button_pressed():
 	decrease_num_units()
