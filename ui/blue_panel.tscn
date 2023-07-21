@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://tgjccevfleic"]
+
+[ext_resource type="Texture2D" uid="uid://ct8cmyfxi8ha3" path="res://asset/ui/blue_panel.png" id="1_wyd61"]
+
+[node name="blue_panel" type="NinePatchRect"]
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("1_wyd61")
+region_rect = Rect2(0, 0, 100, 100)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10

@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cb2s56xtatj3o"]
+
+[ext_resource type="FontFile" uid="uid://b2mxrus3yfkkw" path="res://asset/ui/narrow-modified.ttf" id="1_wge33"]
+[ext_resource type="FontFile" uid="uid://bo5nhlmmcngkt" path="res://asset/ui/Kenney Future.ttf" id="2_gief0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xvlfp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dscsh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gbc6v"]
+
+[resource]
+default_font = ExtResource("2_gief0")
+default_font_size = 16
+Label/colors/font_color = Color(0.266667, 0.266667, 0.266667, 1)
+Label/colors/font_outline_color = Color(0.266667, 0.266667, 0.266667, 1)
+Label/colors/font_shadow_color = Color(1, 1, 1, 0)
+Label/fonts/font = ExtResource("1_wge33")
+LineEdit/colors/caret_color = Color(0, 0, 0, 1)
+LineEdit/colors/clear_button_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+LineEdit/colors/clear_button_color_pressed = Color(1, 1, 1, 1)
+LineEdit/colors/font_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+LineEdit/colors/font_outline_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_placeholder_color = Color(0, 0, 0, 0.6)
+LineEdit/colors/font_selected_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_uneditable_color = Color(0.875, 0.875, 0.875, 0.5)
+LineEdit/colors/selection_color = Color(0.5, 0.5, 0.5, 1)
+LineEdit/fonts/font = ExtResource("1_wge33")
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_xvlfp")
+LineEdit/styles/normal = SubResource("StyleBoxEmpty_dscsh")
+LineEdit/styles/read_only = SubResource("StyleBoxEmpty_gbc6v")

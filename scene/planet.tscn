@@ -1,0 +1,376 @@
+[gd_scene load_steps=14 format=3 uid="uid://cwgs1eoegd0d"]
+
+[ext_resource type="TileSet" uid="uid://bs3tej65i3x01" path="res://tilemap/planetv1.tres" id="1_4bxrw"]
+[ext_resource type="Texture2D" uid="uid://bftpc3uosdva" path="res://asset/ui/blue_button01.png" id="2_u7c2o"]
+[ext_resource type="Texture2D" uid="uid://b126wm3pj77cw" path="res://asset/coinGold.png" id="3_vod5y"]
+[ext_resource type="PackedScene" uid="uid://crw1u2d46c1b" path="res://ui/gray_panel.tscn" id="4_dbp6n"]
+[ext_resource type="FontFile" uid="uid://bo5nhlmmcngkt" path="res://asset/ui/Kenney Future.ttf" id="5_yfxqn"]
+[ext_resource type="PackedScene" uid="uid://tgjccevfleic" path="res://ui/blue_panel.tscn" id="6_vtg26"]
+[ext_resource type="LabelSettings" uid="uid://c7ibfkcae4uw2" path="res://ui/ui_subtitle_settings.tres" id="7_tsxho"]
+[ext_resource type="PackedScene" uid="uid://ck7ajarbrkyfy" path="res://item/iron_ore.tscn" id="8_k6cj0"]
+[ext_resource type="Theme" uid="uid://cb2s56xtatj3o" path="res://ui/base_theme.tres" id="9_taqc5"]
+[ext_resource type="Texture2D" uid="uid://dsry7o1b6iqd0" path="res://asset/icon/minus.png" id="10_05dm0"]
+[ext_resource type="Texture2D" uid="uid://b7y11eq8pwub1" path="res://asset/icon/plus.png" id="11_2fg8i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_186vl"]
+font = ExtResource("5_yfxqn")
+font_size = 24
+font_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xmvq4"]
+font = ExtResource("5_yfxqn")
+font_size = 36
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.380392)
+
+[node name="root" type="Node2D"]
+metadata/_edit_vertical_guides_ = []
+
+[node name="map" type="TileMap" parent="."]
+y_sort_enabled = true
+tile_set = ExtResource("1_4bxrw")
+format = 2
+layer_0/name = "layer0"
+layer_0/y_sort_enabled = true
+layer_0/tile_data = PackedInt32Array(196608, 458766, 6, 131072, 458766, 6, 131071, 458766, 6, 0, 458766, 6, -1, 458766, 6, -65536, 458766, 6, 1, 458766, 6, 65537, 458766, 6, 65536, 458766, 6, 131073, 458766, 6, 196609, 458766, 6, 262146, 458766, 6, 196610, 458766, 6, 262147, 458766, 6, 327682, 458766, 6, 131074, 458766, 6, 65538, 458766, 6, 131075, 458766, 6, 196611, 458766, 6, 262148, 458766, 6, 327683, 458766, 6, 196616, 458766, 6, 131080, 458766, 6, 65543, 458766, 6, 65542, 458766, 6, 6, 458766, 6, 65541, 458766, 6, 65540, 458766, 6, 131076, 458766, 6, 393220, 458766, 6, 458756, 458766, 6, 524293, 458766, 6, 589829, 458766, 6, 655366, 458766, 6, 720902, 458766, 6, 786439, 458766, 6, 851975, 458766, 6, 851974, 458766, 6, 786438, 458766, 6, 786437, 458766, 6, 720900, 458766, 6, 720899, 458766, 6, 655363, 458766, 6, 589826, 458766, 6, 524290, 458766, 6, 458753, 458766, 6, 393218, 458766, 6, 393219, 458766, 6, 458755, 458766, 6, 524292, 458766, 6, 589828, 458766, 6, 655365, 458766, 6, 720901, 458766, 6, 851972, 458766, 6, 917508, 458766, 6, 917507, 458766, 6, 917506, 458766, 6, 851969, 458766, 6, 851970, 458766, 6, 917509, 458766, 6, 917510, 458766, 6, 983046, 458766, 6, 983045, 458766, 6, 983044, 458766, 6, 983043, 458766, 6, 983042, 458766, 6, 917505, 458766, 6, 851968, 458766, 6, 917504, 458766, 6, 983040, 458766, 6, 983041, 458766, 6, 1048578, 458766, 6, 1114114, 458766, 6, 1114115, 458766, 6, 1179651, 458766, 6, 1179650, 458766, 6, 1114113, 458766, 6, 1179649, 458766, 6, 1245184, 458766, 6, 1114112, 458766, 6, 1048576, 458766, 6, 1179652, 458766, 6, 1245188, 458766, 6, 1310720, 458766, 6, 1179648, 458766, 6, 1245186, 458766, 6, 1245187, 458766, 6, 1245185, 458766, 6, 1310721, 458766, 6, 1310724, 458766, 6, 1310722, 458766, 6, 1310723, 458766, 6, 1245189, 458766, 6, 1245190, 458766, 6, 1245191, 458766, 6, 1245192, 458766, 6, 1310729, 458766, 6, 1245193, 458766, 6, 1179654, 458766, 6, 1179653, 458766, 6, 1310726, 458766, 6, 1310725, 458766, 6, 1310727, 458766, 6, 1310728, 458766, 6, 1179656, 458766, 6, 1179657, 458766, 6, 1114121, 458766, 6, 917514, 458766, 6, 983049, 458766, 6, 1048585, 458766, 6, 1114120, 458766, 6, 1048584, 458766, 6, 983048, 458766, 6, 917512, 458766, 6, 851976, 458766, 6, 786440, 458766, 6, 720904, 458766, 6, 655368, 458766, 6, 589832, 458766, 6, 524297, 458766, 6, 458760, 458766, 6, 393225, 458766, 6, 327689, 458766, 6, 262153, 458766, 6, 196617, 458766, 6, 458761, 14, 0, 589833, 14, 0, 655369, 14, 0, 720905, 14, 0, 786441, 14, 0, 131081, 458766, 6, 65544, 458766, 6, 9, 458766, 6, -65527, 458766, 6, 65545, 458766, 6, 524296, 458766, 6, 393224, 458766, 6, 327688, 458766, 6, 786442, 458766, 6, 851977, 14, 0, 917513, 458766, 6, 917511, 458766, 6, 983047, 458766, 6, 851973, 458766, 6, 1048582, 458766, 6, 1114118, 458766, 6, 1179655, 458766, 6, 1114119, 458766, 6, 1048583, 458766, 6, 1114117, 458766, 6, 1114116, 458766, 6, 1048580, 458766, 6, 1048579, 458766, 6, 1048581, 458766, 6, 786433, 458766, 6, 720896, 458766, 6, 655361, 458766, 6, 720897, 458766, 6, 589825, 458766, 6, 524289, 458766, 6, 393217, 458766, 6, 327680, 458766, 6, 393215, 458766, 6, 786431, 458766, 6, 917503, 458766, 6, 786432, 458766, 6, 655360, 458766, 6, 589824, 458766, 6, 524288, 458766, 6, 458752, 458766, 6, 1048577, 458766, 6, 1179647, 458766, 6, 1048575, 458766, 6, 1310719, 458766, 6, 655359, 458766, 6, 524287, 458766, 6, 262143, 458766, 6, 262144, 458766, 6, 393216, 458766, 6, 458754, 458766, 6, 262145, 458766, 6, 327681, 458766, 6, 786434, 458766, 6, 720898, 458766, 6, 655362, 458766, 6, 589827, 458766, 6, 655364, 458766, 6, 786436, 458766, 6, 851971, 458766, 6, 786435, 458766, 6, 524291, 458766, 6, 458757, 458766, 6, 393222, 458766, 6, 327686, 458766, 6, 262150, 458766, 6, 262149, 458766, 6, 196612, 458766, 6, 131077, 458766, 6, 196613, 458766, 6, 4, 458766, 6, 65539, 458766, 6, 3, 458766, 6, -65534, 458766, 6, 2, 458766, 6, -65535, 458766, 6, 196614, 458766, 6, 262151, 458766, 6, 327687, 458766, 6, 458759, 458766, 6, 589831, 458766, 6, 655367, 458766, 6, 720903, 458766, 6, 589830, 458766, 6, 524294, 458766, 6, 393221, 458766, 6, 327684, 458766, 6, 393223, 458766, 6, 524295, 458766, 6, 458758, 458766, 6, 327685, 458766, 6, 262152, 458766, 6, 131079, 458766, 6, 131078, 458766, 6, 8, 458766, 6, -65528, 458766, 6, -65529, 458766, 6, 7, 458766, 6, 196615, 458766, 6, 524298, 14, 0, 393226, 14, 0, 655370, 14, 0, 262154, 14, 0, 131082, 14, 0, 10, 14, 0, 1179658, 14, 0, 1048586, 14, 0, 1310730, 14, 0)
+layer_1/name = "layer1"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = true
+layer_1/y_sort_origin = 128
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(589828, 327694, 5, 524293, 65550, 5, 458757, 262158, 0, 524292, 131086, 5, 458755, 131086, 5, 393219, 131086, 5, 327682, 131086, 5, 262146, 131086, 5, 196609, 131086, 5, 131073, 131086, 5, 65536, 131086, 5, 0, 131086, 5, -1, 131086, 5, 393222, 65550, 5, 327686, 65550, 5, 262151, 65550, 5, 196615, 65550, 5, 131080, 65550, 5, 65544, 65550, 5, 9, 65550, 5, -65527, 65550, 5, 458756, 458766, 6, 393221, 458766, 6, 327685, 458766, 6, 262150, 458766, 6, 196614, 458766, 6, 131079, 458766, 6, 65543, 458766, 6, 8, 458766, 6, -65528, 458766, 6, 393220, 458766, 6, 327683, 458766, 6, 262147, 458766, 6, 196610, 458766, 6, 131074, 458766, 6, 65537, 458766, 6, 1, 458766, 6, -65536, 458766, 6, 196612, 14, 0, 131077, 14, 0, 65541, 14, 0, 6, 14, 0, 327684, 14, 0, 262149, 14, 0, 196613, 14, 0, 131078, 14, 0, 65542, 14, 0, 7, 14, 0, -65529, 14, 0, 262148, 14, 0, 196611, 14, 0, 131075, 14, 0, 65538, 14, 0, 2, 14, 0, -65535, 14, 0, 131076, 14, 0, 65539, 14, 0, 4, 14, 0, -65533, 14, 0, 65540, 14, 0, 5, 14, 0, -65531, 14, 0, -65534, 14, 0, 3, 14, 0, -65532, 14, 0, -65530, 14, 0, 851969, 196614, 4, 720904, 196614, 4, 327680, 6, 4, 1245189, 6, 4, 458759, 458758, 4, 262144, 983046, 3, 589825, 262150, 4, 1048575, 393222, 4, 1114121, 458758, 4, 458761, 65542, 4, 1114119, 131078, 4, 1179649, 131078, 4)
+layer_2/name = "layer2"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = true
+layer_2/y_sort_origin = 256
+layer_2/z_index = 0
+layer_2/tile_data = PackedInt32Array(262148, 327680, 0, 6, 262150, 3, 262153, 393222, 3, 131074, 6, 4, 262149, 327686, 4, 196611, 983046, 4, 3, 851974, 3, 5, 917510, 2)
+layer_3/name = "layer3"
+layer_3/enabled = true
+layer_3/modulate = Color(1, 1, 1, 1)
+layer_3/y_sort_enabled = true
+layer_3/y_sort_origin = 384
+layer_3/z_index = 0
+layer_3/tile_data = PackedInt32Array()
+
+[node name="hud" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 640.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="money_outer" type="Control" parent="hud"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -206.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 61.0
+grow_horizontal = 0
+
+[node name="money_container_box" type="Sprite2D" parent="hud/money_outer"]
+texture = ExtResource("2_u7c2o")
+centered = false
+
+[node name="coin" type="Sprite2D" parent="hud/money_outer"]
+position = Vector2(26, 22)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_vod5y")
+
+[node name="money_amount_container" type="Control" parent="hud/money_outer"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 56.0
+offset_top = 4.0
+offset_right = 180.0
+offset_bottom = 42.0
+
+[node name="money_amount_bg" parent="hud/money_outer/money_amount_container" instance=ExtResource("4_dbp6n")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 5.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="money_amount" type="Label" parent="hud/money_outer/money_amount_container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1000"
+label_settings = SubResource("LabelSettings_186vl")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="trade_ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 270.0
+offset_top = 110.0
+offset_right = 1030.0
+offset_bottom = 530.0
+
+[node name="trade_ui_bg" parent="trade_ui" instance=ExtResource("6_vtg26")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="title" type="Label" parent="trade_ui"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 8.0
+offset_bottom = -368.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TRADE"
+label_settings = SubResource("LabelSettings_xmvq4")
+horizontal_alignment = 1
+
+[node name="body_container" type="Control" parent="trade_ui"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 52.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="buy_container" type="Control" parent="trade_ui/body_container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -380.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_taqc5")
+
+[node name="buy_title" type="Label" parent="trade_ui/body_container/buy_container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -316.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "BUY"
+label_settings = ExtResource("7_tsxho")
+horizontal_alignment = 1
+
+[node name="gray_panel" parent="trade_ui/body_container/buy_container" instance=ExtResource("4_dbp6n")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 36.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="buy_panel_contents" type="Control" parent="trade_ui/body_container/buy_container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 43.0
+offset_right = -17.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="buy_entry" type="Control" parent="trade_ui/body_container/buy_container/buy_panel_contents"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+
+[node name="iron_ore" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry" instance=ExtResource("8_k6cj0")]
+position = Vector2(1, 0)
+scale = Vector2(0.5, 0.5)
+
+[node name="amount_control" type="Control" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_right = 103.0
+grow_vertical = 2
+
+[node name="gray_panel" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry/amount_control" instance=ExtResource("4_dbp6n")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 5.0
+offset_right = -15.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="amount" type="LineEdit" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry/amount_control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 7.0
+offset_right = -19.5625
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "999"
+alignment = 2
+max_length = 3
+virtual_keyboard_type = 2
+
+[node name="dec_button" type="TextureButton" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry/amount_control"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 9.0
+offset_right = 99.0
+offset_bottom = 77.0
+grow_vertical = 2
+scale = Vector2(0.125, 0.125)
+texture_normal = ExtResource("10_05dm0")
+
+[node name="inc_button" type="TextureButton" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry/amount_control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 53.0
+offset_top = 9.0
+offset_right = 85.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.125, 0.125)
+texture_normal = ExtResource("11_2fg8i")
+
+[node name="for" type="Label" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 106.0
+offset_right = -194.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "for"
+vertical_alignment = 1
+
+[node name="unit_amount_coin" type="Sprite2D" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry"]
+position = Vector2(130, 4)
+scale = Vector2(0.179687, 0.179687)
+texture = ExtResource("3_vod5y")
+centered = false
+
+[node name="unit_amount" type="Label" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 148.0
+offset_right = -147.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "999"
+vertical_alignment = 1
+
+[node name="each" type="Label" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 184.5
+offset_right = -104.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "each"
+vertical_alignment = 1
+
+[node name="equals" type="Label" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 226.0
+offset_right = -90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "="
+vertical_alignment = 1
+
+[node name="sign" type="Label" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 243.0
+offset_right = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "+"
+vertical_alignment = 1
+
+[node name="total_amount_count" type="Sprite2D" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry"]
+position = Vector2(251, 4)
+scale = Vector2(0.179687, 0.179687)
+texture = ExtResource("3_vod5y")
+centered = false
+
+[node name="total_amount" type="Label" parent="trade_ui/body_container/buy_container/buy_panel_contents/buy_entry"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 269.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "999999"
+vertical_alignment = 1
+
+[node name="sell_container" type="Control" parent="trade_ui/body_container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 380.0
+grow_horizontal = 2
+grow_vertical = 2

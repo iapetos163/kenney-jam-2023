@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://crw1u2d46c1b"]
+
+[ext_resource type="Texture2D" uid="uid://buhkcuf2n1rm" path="res://asset/ui/grey_panel.png" id="1_c5mqi"]
+
+[node name="gray_panel" type="NinePatchRect"]
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("1_c5mqi")
+region_rect = Rect2(0, 0, 100, 100)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
