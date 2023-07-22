@@ -72,6 +72,7 @@ offset_right = 99.0
 offset_bottom = 77.0
 grow_vertical = 2
 scale = Vector2(0.125, 0.125)
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_0xt2v")
 
 [node name="inc_button" type="TextureButton" parent="amount_control"]
@@ -86,6 +87,7 @@ offset_bottom = 77.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.125, 0.125)
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("4_y00ui")
 
 [node name="for" type="Label" parent="."]
