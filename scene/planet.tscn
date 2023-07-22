@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cwgs1eoegd0d"]
+[gd_scene load_steps=28 format=3 uid="uid://cwgs1eoegd0d"]
 
 [ext_resource type="TileSet" uid="uid://bs3tej65i3x01" path="res://tilemap/planetv1.tres" id="1_4bxrw"]
 [ext_resource type="Script" path="res://scene/planet.gd" id="1_vaqis"]
@@ -18,7 +18,10 @@
 [ext_resource type="Theme" uid="uid://cb2s56xtatj3o" path="res://ui/base_theme.tres" id="9_taqc5"]
 [ext_resource type="PackedScene" uid="uid://bilnpiq2leps0" path="res://ui/transaction_set.tscn" id="10_6txwf"]
 [ext_resource type="Script" path="res://ui/trade_new_money_amount.gd" id="10_cir3g"]
+[ext_resource type="FontFile" uid="uid://b2mxrus3yfkkw" path="res://asset/ui/narrow-modified.ttf" id="11_byv3l"]
+[ext_resource type="Texture2D" uid="uid://b6wmhmrthhg11" path="res://asset/ui/red_sliderLeft.png" id="12_7427s"]
 [ext_resource type="PackedScene" uid="uid://dwcwkqy0bleq" path="res://ui/green_button.tscn" id="12_p0rwm"]
+[ext_resource type="PackedScene" uid="uid://b0biia7skbh1m" path="res://ui/gray_button.tscn" id="13_5ygig"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrq8c"]
 size = Vector2(42, 72)
@@ -27,6 +30,11 @@ size = Vector2(42, 72)
 shader = ExtResource("3_1j2th")
 shader_parameter/line_color = Color(1, 1, 1, 0.815686)
 shader_parameter/line_thickness = 3.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_p7cnn"]
+font = ExtResource("11_byv3l")
+font_size = 20
+font_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_186vl"]
 font = ExtResource("5_yfxqn")
@@ -97,6 +105,37 @@ offset_bottom = 640.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+
+[node name="back_button" type="Button" parent="hud"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 46.0
+
+[node name="gray_button" parent="hud/back_button" instance=ExtResource("13_5ygig")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="hud/back_button"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 3.0
+offset_right = 192.0
+offset_bottom = 29.0
+text = "TO STAR SYSTEM"
+label_settings = SubResource("LabelSettings_p7cnn")
+
+[node name="RedSliderLeft" type="Sprite2D" parent="hud/back_button"]
+position = Vector2(16, 15)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_7427s")
 
 [node name="money_outer" type="Control" parent="hud"]
 layout_mode = 1
