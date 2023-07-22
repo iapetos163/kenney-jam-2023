@@ -1,6 +1,6 @@
 extends Control
 
-var amount_sign: String = '-'
+var amount_sign: String
 var unit_amount: int = 0
 var num_units: int = 0
 var total_amount: int = 0
@@ -31,6 +31,10 @@ func set_unit_amount(amount: int):
 	unit_amount = amount
 	unit_amount_set.emit()
 	recalc_total()
+
+func _ready():
+	amount_sign = '-' if ($'..'.transaction_type == 'BUY') else '+'
+	unit_amount_set.emit()
 
 func _on_num_units_text_changed(new_text: String):
 	var new_value = int(new_text)

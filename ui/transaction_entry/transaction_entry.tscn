@@ -194,6 +194,7 @@ script = ExtResource("12_f82mv")
 [connection signal="total_amount_updated" from="." to="total_amount_container" method="_on_entry_total_amount_updated"]
 [connection signal="total_amount_updated" from="." to="total_amount_container/total_amount" method="_on_entry_total_amount_updated"]
 [connection signal="unit_amount_set" from="." to="unit_amount" method="_on_entry_unit_amount_set"]
+[connection signal="unit_amount_set" from="." to="total_amount_container/sign" method="_on_entry_unit_amount_set"]
 [connection signal="text_changed" from="amount_control/num_units" to="." method="_on_num_units_text_changed"]
 [connection signal="pressed" from="amount_control/dec_button" to="." method="_on_dec_button_pressed"]
 [connection signal="pressed" from="amount_control/inc_button" to="." method="_on_inc_button_pressed"]

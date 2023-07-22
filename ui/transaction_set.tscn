@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bilnpiq2leps0"]
+
+[ext_resource type="PackedScene" uid="uid://boitdlwx2d4vh" path="res://ui/transaction_entry/transaction_entry.tscn" id="1_32qgc"]
+[ext_resource type="Script" path="res://ui/transaction_set.gd" id="1_nv2x6"]
+
+[node name="transaction_set" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 43.0
+offset_right = -933.0
+offset_bottom = -549.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nv2x6")
+
+[node name="placeholder" parent="." instance=ExtResource("1_32qgc")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 331.0
+offset_bottom = 32.0

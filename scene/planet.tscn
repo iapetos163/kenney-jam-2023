@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://tgjccevfleic" path="res://ui/blue_panel.tscn" id="6_vtg26"]
 [ext_resource type="LabelSettings" uid="uid://c7ibfkcae4uw2" path="res://ui/ui_subtitle_settings.tres" id="7_tsxho"]
 [ext_resource type="Texture2D" uid="uid://brv4xuarjigxr" path="res://asset/ui/blue_sliderRight.png" id="8_36pox"]
-[ext_resource type="PackedScene" uid="uid://boitdlwx2d4vh" path="res://ui/transaction_entry/transaction_entry.tscn" id="8_nsi8l"]
 [ext_resource type="Theme" uid="uid://cb2s56xtatj3o" path="res://ui/base_theme.tres" id="9_taqc5"]
+[ext_resource type="PackedScene" uid="uid://bilnpiq2leps0" path="res://ui/transaction_set.tscn" id="10_6txwf"]
 [ext_resource type="PackedScene" uid="uid://dwcwkqy0bleq" path="res://ui/green_button.tscn" id="12_p0rwm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_186vl"]
@@ -250,25 +250,13 @@ offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="buy_panel_contents" type="Control" parent="trade_ui/body_container/buy_container"]
+[node name="transaction_set" parent="trade_ui/body_container/buy_container" instance=ExtResource("10_6txwf")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = 43.0
-offset_right = -17.0
-offset_bottom = -17.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="buy_entry" parent="trade_ui/body_container/buy_container/buy_panel_contents" instance=ExtResource("8_nsi8l")]
-layout_mode = 1
-anchor_right = 1.0
-anchor_bottom = 0.107
-offset_right = 0.0
-offset_bottom = 5.999
-grow_horizontal = 2
+offset_left = 17.0
+offset_top = 42.0
+offset_right = -16.0
+offset_bottom = -213.0
+transaction_type = "BUY"
 
 [node name="sell_container" type="Control" parent="trade_ui/body_container"]
 layout_mode = 1
