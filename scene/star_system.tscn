@@ -1,9 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://erjovlr268gp"]
+[gd_scene load_steps=17 format=3 uid="uid://erjovlr268gp"]
 
 [ext_resource type="Texture2D" uid="uid://bnwim7efupu21" path="res://asset/space_shooter_redux/star1.png" id="1_ce5r1"]
 [ext_resource type="Texture2D" uid="uid://bi6n8vtk7m3wv" path="res://asset/space_shooter_redux/star2.png" id="2_grmq4"]
 [ext_resource type="Texture2D" uid="uid://3hlxel0ba7yf" path="res://asset/space_shooter_redux/star3.png" id="3_7et4m"]
 [ext_resource type="Texture2D" uid="uid://d12t216a3ga76" path="res://asset/icon/fightJ.png" id="4_abosc"]
+[ext_resource type="Texture2D" uid="uid://bg6qkyimcx080" path="res://asset/planets_prebuilt/planet09.png" id="5_hb87l"]
+[ext_resource type="Texture2D" uid="uid://byf41lob8s33i" path="res://asset/planets_prebuilt/planet05.png" id="6_tf1f7"]
+[ext_resource type="Texture2D" uid="uid://co523nqim0wis" path="res://asset/space_shooter_redux/meteorGrey_big1.png" id="7_3q40k"]
+[ext_resource type="Texture2D" uid="uid://nx6xb42y0omx" path="res://asset/space_shooter_redux/meteorGrey_big3.png" id="8_8u50h"]
+[ext_resource type="Texture2D" uid="uid://dhe3qmd870g0f" path="res://asset/space_shooter_redux/meteorGrey_big2.png" id="9_rag2a"]
+[ext_resource type="Texture2D" uid="uid://bljc314py6vmy" path="res://asset/space_shooter_redux/meteorGrey_big4.png" id="10_4ja8m"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vgfi8"]
 
@@ -30,9 +36,10 @@ sources/2 = SubResource("TileSetAtlasSource_go5j7")
 [sub_resource type="Environment" id="Environment_ertxg"]
 background_mode = 3
 glow_enabled = true
-glow_intensity = 1.91
-glow_strength = 2.0
+glow_intensity = 5.87
+glow_strength = 1.66
 glow_blend_mode = 0
+glow_hdr_threshold = 1.2
 
 [node name="star_system" type="Node2D"]
 material = SubResource("CanvasItemMaterial_vgfi8")
@@ -57,3 +64,48 @@ texture = ExtResource("4_abosc")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ertxg")
+
+[node name="Planet09" type="Sprite2D" parent="."]
+position = Vector2(1098, 410)
+scale = Vector2(0.153906, 0.153906)
+texture = ExtResource("5_hb87l")
+
+[node name="Planet05" type="Sprite2D" parent="."]
+position = Vector2(507, 210)
+scale = Vector2(0.0800781, 0.0800781)
+texture = ExtResource("6_tf1f7")
+
+[node name="MeteorGreyBig1" type="Sprite2D" parent="."]
+position = Vector2(665, 109)
+rotation = -0.785398
+scale = Vector2(0.416667, 0.416667)
+texture = ExtResource("7_3q40k")
+
+[node name="MeteorGreyBig2" type="Sprite2D" parent="."]
+position = Vector2(709.75, 481.5)
+rotation = 1.0472
+scale = Vector2(0.381188, 0.392857)
+texture = ExtResource("7_3q40k")
+
+[node name="MeteorGreyBig3" type="Sprite2D" parent="."]
+position = Vector2(690.207, 330)
+rotation = -1.0472
+scale = Vector2(0.487805, 0.487805)
+texture = ExtResource("8_8u50h")
+
+[node name="MeteorGreyBig4" type="Sprite2D" parent="."]
+position = Vector2(761.165, 145.107)
+rotation = -1.8326
+scale = Vector2(0.416386, 0.416386)
+texture = ExtResource("8_8u50h")
+
+[node name="MeteorGreyBig5" type="Sprite2D" parent="."]
+position = Vector2(599, 605)
+scale = Vector2(0.418367, 0.418367)
+texture = ExtResource("9_rag2a")
+
+[node name="MeteorGreyBig6" type="Sprite2D" parent="."]
+position = Vector2(757, 20)
+rotation = -1.0472
+scale = Vector2(0.371452, 0.371452)
+texture = ExtResource("10_4ja8m")
