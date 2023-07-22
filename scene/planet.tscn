@@ -1,12 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://cwgs1eoegd0d"]
+[gd_scene load_steps=19 format=3 uid="uid://cwgs1eoegd0d"]
 
 [ext_resource type="TileSet" uid="uid://bs3tej65i3x01" path="res://tilemap/planetv1.tres" id="1_4bxrw"]
+[ext_resource type="Script" path="res://scene/planet.gd" id="1_vaqis"]
 [ext_resource type="Texture2D" uid="uid://bftpc3uosdva" path="res://asset/ui/blue_button01.png" id="2_u7c2o"]
 [ext_resource type="Texture2D" uid="uid://b126wm3pj77cw" path="res://asset/coinGold.png" id="3_vod5y"]
 [ext_resource type="PackedScene" uid="uid://crw1u2d46c1b" path="res://ui/gray_panel.tscn" id="4_dbp6n"]
 [ext_resource type="FontFile" uid="uid://bo5nhlmmcngkt" path="res://asset/ui/Kenney Future.ttf" id="5_yfxqn"]
 [ext_resource type="Script" path="res://ui/trade.gd" id="6_ja7st"]
 [ext_resource type="PackedScene" uid="uid://tgjccevfleic" path="res://ui/blue_panel.tscn" id="6_vtg26"]
+[ext_resource type="Script" path="res://ui/money_amount.gd" id="7_gqfft"]
 [ext_resource type="LabelSettings" uid="uid://c7ibfkcae4uw2" path="res://ui/ui_subtitle_settings.tres" id="7_tsxho"]
 [ext_resource type="Texture2D" uid="uid://brv4xuarjigxr" path="res://asset/ui/blue_sliderRight.png" id="8_36pox"]
 [ext_resource type="Script" path="res://ui/trade_current_money_amount.gd" id="9_480ja"]
@@ -27,6 +29,7 @@ shadow_size = 2
 shadow_color = Color(0, 0, 0, 0.380392)
 
 [node name="root" type="Node2D"]
+script = ExtResource("1_vaqis")
 metadata/_edit_vertical_guides_ = []
 
 [node name="map" type="TileMap" parent="."]
@@ -117,6 +120,7 @@ text = "1000"
 label_settings = SubResource("LabelSettings_186vl")
 horizontal_alignment = 2
 vertical_alignment = 1
+script = ExtResource("7_gqfft")
 
 [node name="trade_ui" type="Control" parent="."]
 layout_mode = 3
@@ -196,10 +200,11 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
-offset_right = -124.0
+offset_right = -163.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "2222222222"
+horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_480ja")
 
@@ -208,12 +213,12 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 122.0
+offset_left = 161.0
 offset_right = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "2222222222"
-horizontal_alignment = 2
+horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("10_cir3g")
 
@@ -306,7 +311,7 @@ offset_right = -16.0
 offset_bottom = -213.0
 transaction_type = "SELL"
 
-[node name="ok_button" type="Control" parent="trade_ui/body_container"]
+[node name="ok_button" type="Button" parent="trade_ui/body_container"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -336,13 +341,17 @@ anchor_bottom = 1.0
 offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 text = "OK"
 label_settings = ExtResource("7_tsxho")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="money_amount_updated" from="." to="hud/money_outer/money_amount_container/money_amount" method="_on_root_money_amount_updated"]
 [connection signal="available_amount_updated" from="trade_ui" to="trade_ui/body_container/money_amount_change_container/current_money_amount" method="_on_trade_ui_available_amount_updated"]
 [connection signal="available_amount_updated" from="trade_ui" to="trade_ui/body_container/money_amount_change_container/new_money_amount" method="_on_trade_ui_available_amount_updated"]
 [connection signal="net_diff_amount_updated" from="trade_ui" to="trade_ui/body_container/money_amount_change_container/new_money_amount" method="_on_trade_ui_net_diff_amount_updated"]
+[connection signal="submitted" from="trade_ui" to="." method="_on_trade_ui_submitted"]
 [connection signal="total_diff_amount_updated" from="trade_ui/body_container/buy_container/buy_txn_set" to="trade_ui" method="_on_buy_txn_set_total_diff_amount_updated"]
 [connection signal="total_diff_amount_updated" from="trade_ui/body_container/sell_container/sell_txn_set" to="trade_ui" method="_on_sell_txn_set_total_diff_amount_updated"]
+[connection signal="pressed" from="trade_ui/body_container/ok_button" to="trade_ui" method="_on_ok_button_pressed"]

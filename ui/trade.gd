@@ -1,11 +1,11 @@
 extends Control
 
-@export
-var available_amount: int = 0
+var available_amount = 0
 var net_diff_amount = 0
 
 signal available_amount_updated
 signal net_diff_amount_updated
+signal submitted(net_diff_amount: int)
 
 func set_available_amount(amount: int):
 	available_amount = amount
@@ -23,3 +23,5 @@ func _on_buy_txn_set_total_diff_amount_updated():
 func _on_sell_txn_set_total_diff_amount_updated():
 	refresh_net_diff_amount()
 
+func _on_ok_button_pressed():
+	submitted.emit(net_diff_amount)
