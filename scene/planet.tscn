@@ -1,10 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://cwgs1eoegd0d"]
+[gd_scene load_steps=24 format=3 uid="uid://cwgs1eoegd0d"]
 
 [ext_resource type="TileSet" uid="uid://bs3tej65i3x01" path="res://tilemap/planetv1.tres" id="1_4bxrw"]
 [ext_resource type="Script" path="res://scene/planet.gd" id="1_vaqis"]
 [ext_resource type="Texture2D" uid="uid://bftpc3uosdva" path="res://asset/ui/blue_button01.png" id="2_u7c2o"]
+[ext_resource type="Shader" path="res://shader/outline.gdshader" id="3_1j2th"]
 [ext_resource type="Texture2D" uid="uid://b126wm3pj77cw" path="res://asset/coinGold.png" id="3_vod5y"]
+[ext_resource type="Texture2D" uid="uid://d2vkyfcjujvi0" path="res://asset/alien/alien_SE.png" id="4_0ef45"]
 [ext_resource type="PackedScene" uid="uid://crw1u2d46c1b" path="res://ui/gray_panel.tscn" id="4_dbp6n"]
+[ext_resource type="Script" path="res://scene/npc_trader_sprite.gd" id="5_f655t"]
 [ext_resource type="FontFile" uid="uid://bo5nhlmmcngkt" path="res://asset/ui/Kenney Future.ttf" id="5_yfxqn"]
 [ext_resource type="Script" path="res://ui/trade.gd" id="6_ja7st"]
 [ext_resource type="PackedScene" uid="uid://tgjccevfleic" path="res://ui/blue_panel.tscn" id="6_vtg26"]
@@ -16,6 +19,14 @@
 [ext_resource type="PackedScene" uid="uid://bilnpiq2leps0" path="res://ui/transaction_set.tscn" id="10_6txwf"]
 [ext_resource type="Script" path="res://ui/trade_new_money_amount.gd" id="10_cir3g"]
 [ext_resource type="PackedScene" uid="uid://dwcwkqy0bleq" path="res://ui/green_button.tscn" id="12_p0rwm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrq8c"]
+size = Vector2(42, 72)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tg28l"]
+shader = ExtResource("3_1j2th")
+shader_parameter/line_color = Color(1, 1, 1, 0.815686)
+shader_parameter/line_thickness = 3.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_186vl"]
 font = ExtResource("5_yfxqn")
@@ -52,7 +63,7 @@ layer_2/modulate = Color(1, 1, 1, 1)
 layer_2/y_sort_enabled = true
 layer_2/y_sort_origin = 256
 layer_2/z_index = 0
-layer_2/tile_data = PackedInt32Array(262148, 327680, 0, 6, 262150, 3, 262153, 393222, 3, 131074, 6, 4, 262149, 327686, 4, 196611, 983046, 4, 3, 851974, 3, 5, 917510, 2)
+layer_2/tile_data = PackedInt32Array(6, 262150, 3, 262153, 393222, 3, 131074, 6, 4, 262149, 327686, 4, 196611, 983046, 4, 3, 851974, 3, 5, 917510, 2)
 layer_3/name = "layer3"
 layer_3/enabled = true
 layer_3/modulate = Color(1, 1, 1, 1)
@@ -60,6 +71,21 @@ layer_3/y_sort_enabled = true
 layer_3/y_sort_origin = 384
 layer_3/z_index = 0
 layer_3/tile_data = PackedInt32Array()
+
+[node name="npc_trader" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="npc_trader"]
+position = Vector2(559, 157)
+shape = SubResource("RectangleShape2D_lrq8c")
+
+[node name="npc_trader_sprite" type="Sprite2D" parent="npc_trader"]
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_tg28l")
+position = Vector2(559, 156)
+texture = ExtResource("4_0ef45")
+region_enabled = true
+region_rect = Rect2(228, 244, 56, 80)
+script = ExtResource("5_f655t")
 
 [node name="hud" type="Control" parent="."]
 layout_mode = 3
@@ -70,6 +96,7 @@ offset_right = 1280.0
 offset_bottom = 640.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="money_outer" type="Control" parent="hud"]
 layout_mode = 1
@@ -123,6 +150,7 @@ vertical_alignment = 1
 script = ExtResource("7_gqfft")
 
 [node name="trade_ui" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 270.0
@@ -322,6 +350,7 @@ offset_right = -332.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 
 [node name="green_button" parent="trade_ui/body_container/ok_button" instance=ExtResource("12_p0rwm")]
 layout_mode = 1
@@ -348,6 +377,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="money_amount_updated" from="." to="hud/money_outer/money_amount_container/money_amount" method="_on_root_money_amount_updated"]
+[connection signal="input_event" from="npc_trader" to="." method="_on_npc_trader_input_event"]
+[connection signal="mouse_entered" from="npc_trader" to="npc_trader/npc_trader_sprite" method="_on_npc_trader_mouse_entered"]
+[connection signal="mouse_exited" from="npc_trader" to="npc_trader/npc_trader_sprite" method="_on_npc_trader_mouse_exited"]
 [connection signal="available_amount_updated" from="trade_ui" to="trade_ui/body_container/money_amount_change_container/current_money_amount" method="_on_trade_ui_available_amount_updated"]
 [connection signal="available_amount_updated" from="trade_ui" to="trade_ui/body_container/money_amount_change_container/new_money_amount" method="_on_trade_ui_available_amount_updated"]
 [connection signal="net_diff_amount_updated" from="trade_ui" to="trade_ui/body_container/money_amount_change_container/new_money_amount" method="_on_trade_ui_net_diff_amount_updated"]

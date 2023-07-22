@@ -32,9 +32,6 @@ func set_items(items_arr: Array[Dictionary]):
 		entry_nodes.append(create_entry(item, y_offset))
 		y_offset += 48
 
-func _ready():
-	set_items([{ 'item_type': 'IRON', 'unit_amount': 10 }])
-
 func _on_entry_total_amount_updated():
 	var sum = 0
 	for entry in entry_nodes:
