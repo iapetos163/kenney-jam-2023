@@ -1,13 +1,12 @@
-[gd_scene load_steps=28 format=3 uid="uid://cwgs1eoegd0d"]
+[gd_scene load_steps=26 format=3 uid="uid://cwgs1eoegd0d"]
 
 [ext_resource type="TileSet" uid="uid://bs3tej65i3x01" path="res://tilemap/planetv1.tres" id="1_4bxrw"]
 [ext_resource type="Script" path="res://scene/planet.gd" id="1_vaqis"]
 [ext_resource type="Texture2D" uid="uid://bftpc3uosdva" path="res://asset/ui/blue_button01.png" id="2_u7c2o"]
-[ext_resource type="Shader" path="res://shader/outline.gdshader" id="3_1j2th"]
+[ext_resource type="PackedScene" uid="uid://bhgpldq2v4qr0" path="res://ui/interactable_sprite.tscn" id="3_1suov"]
 [ext_resource type="Texture2D" uid="uid://b126wm3pj77cw" path="res://asset/coinGold.png" id="3_vod5y"]
 [ext_resource type="Texture2D" uid="uid://d2vkyfcjujvi0" path="res://asset/alien/alien_SE.png" id="4_0ef45"]
 [ext_resource type="PackedScene" uid="uid://crw1u2d46c1b" path="res://ui/gray_panel.tscn" id="4_dbp6n"]
-[ext_resource type="Script" path="res://scene/npc_trader_sprite.gd" id="5_f655t"]
 [ext_resource type="FontFile" uid="uid://bo5nhlmmcngkt" path="res://asset/ui/Kenney Future.ttf" id="5_yfxqn"]
 [ext_resource type="Script" path="res://ui/trade.gd" id="6_ja7st"]
 [ext_resource type="PackedScene" uid="uid://tgjccevfleic" path="res://ui/blue_panel.tscn" id="6_vtg26"]
@@ -23,13 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://dwcwkqy0bleq" path="res://ui/green_button.tscn" id="12_p0rwm"]
 [ext_resource type="PackedScene" uid="uid://b0biia7skbh1m" path="res://ui/gray_button.tscn" id="13_5ygig"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrq8c"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecr10"]
 size = Vector2(42, 72)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tg28l"]
-shader = ExtResource("3_1j2th")
-shader_parameter/line_color = Color(1, 1, 1, 0.815686)
-shader_parameter/line_thickness = 3.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_p7cnn"]
 font = ExtResource("11_byv3l")
@@ -80,20 +74,18 @@ layer_3/y_sort_origin = 384
 layer_3/z_index = 0
 layer_3/tile_data = PackedInt32Array()
 
-[node name="npc_trader" type="Area2D" parent="."]
+[node name="npc_trader" parent="." instance=ExtResource("3_1suov")]
 position = Vector2(559, 157)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="npc_trader"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="npc_trader"]
 position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_lrq8c")
+shape = SubResource("RectangleShape2D_ecr10")
 
-[node name="npc_trader_sprite" type="Sprite2D" parent="npc_trader"]
+[node name="sprite" type="Sprite2D" parent="npc_trader"]
 y_sort_enabled = true
-material = SubResource("ShaderMaterial_tg28l")
 texture = ExtResource("4_0ef45")
 region_enabled = true
 region_rect = Rect2(228, 244, 56, 80)
-script = ExtResource("5_f655t")
 
 [node name="hud" type="Control" parent="."]
 layout_mode = 3
@@ -417,8 +409,6 @@ vertical_alignment = 1
 
 [connection signal="money_amount_updated" from="." to="hud/money_outer/money_amount_container/money_amount" method="_on_root_money_amount_updated"]
 [connection signal="input_event" from="npc_trader" to="." method="_on_npc_trader_input_event"]
-[connection signal="mouse_entered" from="npc_trader" to="npc_trader/npc_trader_sprite" method="_on_npc_trader_mouse_entered"]
-[connection signal="mouse_exited" from="npc_trader" to="npc_trader/npc_trader_sprite" method="_on_npc_trader_mouse_exited"]
 [connection signal="available_amount_updated" from="trade_ui" to="trade_ui/body_container/money_amount_change_container/current_money_amount" method="_on_trade_ui_available_amount_updated"]
 [connection signal="available_amount_updated" from="trade_ui" to="trade_ui/body_container/money_amount_change_container/new_money_amount" method="_on_trade_ui_available_amount_updated"]
 [connection signal="net_diff_amount_updated" from="trade_ui" to="trade_ui/body_container/money_amount_change_container/new_money_amount" method="_on_trade_ui_net_diff_amount_updated"]
