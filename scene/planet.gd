@@ -11,7 +11,7 @@ func _on_trade_ui_submitted(net_diff_amount: int):
 	money_amount += net_diff_amount
 	money_amount_updated.emit()
 
-func _on_npc_trader_input_event(_viewport: Node, event: InputEvent, _yeah):
+func _on_npc_trader_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if event is InputEventMouseButton and event.is_pressed():
 		var trade = $'./trade_ui'
 		trade.set_available_amount(money_amount)

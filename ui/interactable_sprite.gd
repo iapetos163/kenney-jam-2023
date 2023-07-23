@@ -1,7 +1,7 @@
 extends Area2D
 
 var sprite_mat = preload("res://shader/outline_material.tres")
-var sprite: Sprite2D
+var sprite: Node2D
 
 func _ready():
 	sprite = $'./sprite'

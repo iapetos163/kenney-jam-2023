@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://erjovlr268gp"]
+[gd_scene load_steps=20 format=3 uid="uid://erjovlr268gp"]
 
+[ext_resource type="Script" path="res://scene/star_system.gd" id="1_86hi4"]
 [ext_resource type="Texture2D" uid="uid://bnwim7efupu21" path="res://asset/space_shooter_redux/star1.png" id="1_ce5r1"]
 [ext_resource type="Texture2D" uid="uid://bi6n8vtk7m3wv" path="res://asset/space_shooter_redux/star2.png" id="2_grmq4"]
 [ext_resource type="Texture2D" uid="uid://3hlxel0ba7yf" path="res://asset/space_shooter_redux/star3.png" id="3_7et4m"]
@@ -8,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://byf41lob8s33i" path="res://asset/planets_prebuilt/planet05.png" id="6_tf1f7"]
 [ext_resource type="Texture2D" uid="uid://co523nqim0wis" path="res://asset/space_shooter_redux/meteorGrey_big1.png" id="7_3q40k"]
 [ext_resource type="Texture2D" uid="uid://nx6xb42y0omx" path="res://asset/space_shooter_redux/meteorGrey_big3.png" id="8_8u50h"]
+[ext_resource type="PackedScene" uid="uid://bhgpldq2v4qr0" path="res://ui/interactable_sprite.tscn" id="9_q1dsf"]
 [ext_resource type="Texture2D" uid="uid://dhe3qmd870g0f" path="res://asset/space_shooter_redux/meteorGrey_big2.png" id="9_rag2a"]
 [ext_resource type="Texture2D" uid="uid://bljc314py6vmy" path="res://asset/space_shooter_redux/meteorGrey_big4.png" id="10_4ja8m"]
 
@@ -41,12 +43,17 @@ glow_strength = 1.66
 glow_blend_mode = 0
 glow_hdr_threshold = 1.2
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mlgv2"]
+radius = 41.0
+
 [node name="star_system" type="Node2D"]
 material = SubResource("CanvasItemMaterial_vgfi8")
+script = ExtResource("1_86hi4")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1280.0
 offset_bottom = 640.0
+mouse_filter = 1
 color = Color(0, 0, 0, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -69,11 +76,6 @@ environment = SubResource("Environment_ertxg")
 position = Vector2(1098, 410)
 scale = Vector2(0.153906, 0.153906)
 texture = ExtResource("5_hb87l")
-
-[node name="Planet05" type="Sprite2D" parent="."]
-position = Vector2(507, 210)
-scale = Vector2(0.0800781, 0.0800781)
-texture = ExtResource("6_tf1f7")
 
 [node name="MeteorGreyBig1" type="Sprite2D" parent="."]
 position = Vector2(665, 109)
@@ -104,8 +106,22 @@ position = Vector2(599, 605)
 scale = Vector2(0.418367, 0.418367)
 texture = ExtResource("9_rag2a")
 
+[node name="visitable_planet" parent="." instance=ExtResource("9_q1dsf")]
+position = Vector2(507, 208)
+
+[node name="sprite" type="Sprite2D" parent="visitable_planet"]
+position = Vector2(0, 2)
+scale = Vector2(0.0800781, 0.0800781)
+texture = ExtResource("6_tf1f7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="visitable_planet"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_mlgv2")
+
 [node name="MeteorGreyBig6" type="Sprite2D" parent="."]
 position = Vector2(757, 20)
 rotation = -1.0472
 scale = Vector2(0.371452, 0.371452)
 texture = ExtResource("10_4ja8m")
+
+[connection signal="input_event" from="visitable_planet" to="." method="_on_visitable_planet_input_event"]

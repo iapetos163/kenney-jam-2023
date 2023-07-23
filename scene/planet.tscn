@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cwgs1eoegd0d"]
+[gd_scene load_steps=27 format=3 uid="uid://cwgs1eoegd0d"]
 
 [ext_resource type="TileSet" uid="uid://bs3tej65i3x01" path="res://tilemap/planetv1.tres" id="1_4bxrw"]
 [ext_resource type="Script" path="res://scene/planet.gd" id="1_vaqis"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b126wm3pj77cw" path="res://asset/coinGold.png" id="3_vod5y"]
 [ext_resource type="Texture2D" uid="uid://d2vkyfcjujvi0" path="res://asset/alien/alien_SE.png" id="4_0ef45"]
 [ext_resource type="PackedScene" uid="uid://crw1u2d46c1b" path="res://ui/gray_panel.tscn" id="4_dbp6n"]
+[ext_resource type="Script" path="res://ui/back_button.gd" id="5_bxkir"]
 [ext_resource type="FontFile" uid="uid://bo5nhlmmcngkt" path="res://asset/ui/Kenney Future.ttf" id="5_yfxqn"]
 [ext_resource type="Script" path="res://ui/trade.gd" id="6_ja7st"]
 [ext_resource type="PackedScene" uid="uid://tgjccevfleic" path="res://ui/blue_panel.tscn" id="6_vtg26"]
@@ -104,6 +105,7 @@ offset_left = 16.0
 offset_top = 16.0
 offset_right = 213.0
 offset_bottom = 46.0
+script = ExtResource("5_bxkir")
 
 [node name="gray_button" parent="hud/back_button" instance=ExtResource("13_5ygig")]
 layout_mode = 1
