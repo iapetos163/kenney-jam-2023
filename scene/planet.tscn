@@ -81,15 +81,15 @@ layer_3/z_index = 0
 layer_3/tile_data = PackedInt32Array()
 
 [node name="npc_trader" type="Area2D" parent="."]
+position = Vector2(559, 157)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="npc_trader"]
-position = Vector2(559, 157)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_lrq8c")
 
 [node name="npc_trader_sprite" type="Sprite2D" parent="npc_trader"]
 y_sort_enabled = true
 material = SubResource("ShaderMaterial_tg28l")
-position = Vector2(559, 156)
 texture = ExtResource("4_0ef45")
 region_enabled = true
 region_rect = Rect2(228, 244, 56, 80)
